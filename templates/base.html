@@ -6,7 +6,9 @@
         <meta charset="utf-8" />
         <meta name="generator" content="Pelican" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}" />
+        {% assets filters="cssmin", output="css/main.min.css", 'css/reset.css', "css/fonts.css", "css/main.css" %}
+            <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}"/>
+        {% endassets %}
         {% if FEED_ALL_ATOM %}
         <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
         {% endif %}
@@ -57,7 +59,7 @@
     </div>
   </div>
 {% include 'analytics.html' %}
-{% assets "js\main.js" %}
+{% assets output="js/main.min.js", "js/main.js" %}
 <script src="{{ SITEURL }}/{{ ASSET_URL }}"></script>
 {% endassets %}
 </body>
