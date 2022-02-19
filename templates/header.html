@@ -1,0 +1,47 @@
+
+      <section id="sitelogo">
+        <h1><a href="{{ SITEURL }}/">{{ SITENAME }}{% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a></h1>
+      </section>
+      <!-- Hamburger icon -->
+      <a class="mobile-nav--open" id="open-mobile-menu">
+        <span class="sr-only"></span>
+      </a>
+      <nav id="menu"><ul>
+        {% if DISPLAY_PAGES_ON_MENU %}
+          {% for p in pages %}
+            <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+          {% endfor %}
+        {% endif %}
+        {% if DISPLAY_CATEGORIES_ON_MENU %}
+          {% for cat, null in categories %}
+            <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+          {% endfor %}
+        {% endif %}
+        {% for title, link in MENUITEMS %}
+            <li><a href="{{ link }}">{{ title }}</a></li>
+        {% endfor %}
+        </ul>
+      </nav>
+      <div id="header-social">yes</div>
+      <div id="mobile-menu" class="">
+        <button class="mobile-nav--close" id="close-mobile-menu">
+          <span class="sr-only">Close</span>
+        </button>
+        <nav id="mobile-nav"><ul>
+          {% if DISPLAY_PAGES_ON_MENU %}
+            {% for p in pages %}
+              <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+            {% endfor %}
+          {% endif %}
+          {% if DISPLAY_CATEGORIES_ON_MENU %}
+            {% for cat, null in categories %}
+              <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+            {% endfor %}
+          {% endif %}
+          {% for title, link in MENUITEMS %}
+              <li><a href="{{ link }}">{{ title }}</a></li>
+          {% endfor %}
+          </ul>
+        </nav>
+      </div>
+      <!-- /#menu -->
