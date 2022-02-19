@@ -1,20 +1,20 @@
 
       <section id="sitelogo">
-        <h1><a href="{{ SITEURL }}/">{{ SITENAME }}{% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a></h1>
+        <a href="{{ SITEURL }}/"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/logo.png" /></a>
       </section>
       <!-- Hamburger icon -->
       <a class="mobile-nav--open" id="open-mobile-menu">
         <span class="sr-only"></span>
       </a>
       <nav id="menu"><ul>
-        {% if DISPLAY_PAGES_ON_MENU %}
-          {% for p in pages %}
-            <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-          {% endfor %}
-        {% endif %}
         {% if DISPLAY_CATEGORIES_ON_MENU %}
           {% for cat, null in categories %}
             <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+          {% endfor %}
+        {% endif %}
+        {% if DISPLAY_PAGES_ON_MENU %}
+          {% for p in pages %}
+            <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
           {% endfor %}
         {% endif %}
         {% for title, link in MENUITEMS %}
@@ -22,21 +22,26 @@
         {% endfor %}
         </ul>
       </nav>
-      <div id="header-social">yes</div>
+      <div id="header-social">
+          <a class="social-icon" href="https://twitter.com/_catmeister_" target="_blank"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/social_links_twitteri.gif"></a>
+          <a class="social-icon" href="https://www.instagram.com/_catmeister_/" target="_blank"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/social_links_ig.gif"></a>
+          <a class="social-icon" href="https://catmeister.itch.io/" target="_blank"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/social_links_itch.gif"></a>
+          <a class="social-icon" href="https://ko-fi.com/catmeister" target="_blank"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/social_links_ko-f2i.gif"></a>
+      </div>
       <div id="mobile-menu" class="">
-        <img id="mobilemenulogo" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/portrait.gif" />
+        <a id="mobilemenulogo" href="{{ SITEURL }}/"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/portrait.gif" /></a>
         <a class="mobile-nav--close" id="close-mobile-menu">
           <span class="sr-only"></span>
         </a>
         <nav id="mobile-nav"><ul>
-          {% if DISPLAY_PAGES_ON_MENU %}
-            {% for p in pages %}
-              <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-            {% endfor %}
-          {% endif %}
           {% if DISPLAY_CATEGORIES_ON_MENU %}
             {% for cat, null in categories %}
               <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+            {% endfor %}
+          {% endif %}
+          {% if DISPLAY_PAGES_ON_MENU %}
+            {% for p in pages %}
+              <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
             {% endfor %}
           {% endif %}
           {% for title, link in MENUITEMS %}
