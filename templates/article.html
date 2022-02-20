@@ -23,6 +23,7 @@
 
 {% block content %}
 <section id="content" class="body">
+  <img src="{{ SITEURL }}/{{article.featured}}" />
   <header>
     <h2 class="entry-title">
       <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
@@ -30,13 +31,16 @@
  {% import 'translations.html' as translations with context %}
  {{ translations.translations_for(article) }}
   </header>
+  <div class="entry-content">
+    {{ article.content }}
+  </div><!-- /.entry-content -->
   <footer class="post-info">
     <time class="published" datetime="{{ article.date.isoformat() }}">
-      {{ article.locale_date }}
+      Posted: {{ article.date.strftime('%Y-%m-%d') }}
     </time>
     {% if article.modified %}
     <time class="modified" datetime="{{ article.modified.isoformat() }}">
-      {{ article.locale_modified }}
+      / Modified: {{ article.modified.strftime('%Y-%m-%d') }}
     </time>
     {% endif %}
     {% if article.authors %}
@@ -60,8 +64,5 @@
     </div>
     {% endif %}
   </footer><!-- /.post-info -->
-  <div class="entry-content">
-    {{ article.content }}
-  </div><!-- /.entry-content -->
 </section>
 {% endblock %}
