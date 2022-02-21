@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block html_lang %}{{ article.lang }}{% endblock %}
 
-{% block title %}{{ SITENAME }} - {{ article.title|striptags  }}{% endblock %}
+{% block title %}{{ article.title|striptags  }} - {{ SITENAME }}{% endblock %}
 
 {% block head %}
   {{ super() }}
@@ -11,9 +11,7 @@
     {{ translations.entry_hreflang(article) }}
   {% endif %}
 
-  {% if article.description %}
-    <meta name="description" content="{{article.description}}" />
-  {% endif %}
+
 
   {% for tag in article.tags %}
     <meta name="tags" content="{{tag}}" />
@@ -21,15 +19,20 @@
 
 {% endblock %}
 
+{% if article.description %}
+  {% block metadesc %}
+  <meta name="description" content="{{article.description}}" />
+  {% endblock metadesc %}
+{% endif %}
+
 {% block content %}
 <section id="content" class="body">
   {% if article.featured %}
   <img src="{{ SITEURL }}/{{article.featured}}" />
   {% endif %}
   <header>
-    <h2 class="entry-title">
-      <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
-         title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+    <h1 class="entry-title">{{ article.title }}</h2>
+    <hr>
  {% import 'translations.html' as translations with context %}
  {{ translations.translations_for(article) }}
   </header>

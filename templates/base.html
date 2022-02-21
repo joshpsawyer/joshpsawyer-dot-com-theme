@@ -5,6 +5,9 @@
         <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
         <meta charset="utf-8" />
         <meta name="generator" content="Pelican" />
+        {% block metadesc %}
+        <meta name="description" content="personal website of josh p. sawyer. art, tutorial, gamedev.">
+        {% endblock metadesc %}
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% assets filters="cssmin", output="css/main.min.css", 'css/reset.css', "css/fonts.css", "css/main.css" %}
             <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}"/>
@@ -49,6 +52,9 @@
         <div id="maincontent">
           {% block content %}
           {% endblock %}
+          <div id="signatureblock">
+            <img class="signature" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/secretsauce.png" alt="pixel signature"/>
+          </div>
         </div>
       </main>
       <footer id="contentinfo" class="body">
