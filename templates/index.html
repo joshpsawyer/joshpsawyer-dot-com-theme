@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-<section id="content">
 
 {% if output_file == 'index.html' or output_file == 'categories/artz.html' %}
+    <section id="portfolio-content">
     {% include 'index-portfolio-grid.html' %}
 {% else %}
+    <section id="content">
     {% block content_title %}
     <h2>All articles</h2>
     {% endblock %}
