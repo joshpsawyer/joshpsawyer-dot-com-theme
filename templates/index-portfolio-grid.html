@@ -2,7 +2,12 @@
     {% for article in articles_page.object_list  %}
         {% if article.category.name in CATEGORIES_TO_DISPLAY_ON_HOMEPAGE %}
             <div class="portfolioentry">
-                <a href="{{ SITEURL }}/{{ article.url }}" name="{{article.title}}"><img src="{{ SITEURL }}/{{article.thumbnail}}" alt="{{article.title}}" /></a>
+                <a href="{{ SITEURL }}/{{ article.url }}" name="{{article.title}}">
+                    <!-- <div class="portfoliooverlay">
+                        <img src="{{ SITEURL }}/{{article.thumbnail}}" alt="{{article.title}}" />
+                    </div> -->
+                    <img src="{{ SITEURL }}/{{article.thumbnail}}" alt="{{article.title}}" />
+                </a>
                 <!-- <article class="hentry"> -->
                     <!-- <header> <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2> </header> -->
                 <!-- </article> -->
