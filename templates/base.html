@@ -9,7 +9,7 @@
         <meta name="description" content="personal website of josh p. sawyer. art, tutorial, gamedev.">
         {% endblock metadesc %}
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {% assets filters="cssmin", output="css/main.min.css", 'css/reset.css', "css/fonts.css", "css/main.css" %}
+        {% assets filters="scss,cssmin", output="css/main.min.css", 'css/reset.css', "css/fonts.css", "css/main.scss" %}
             <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}"/>
         {% endassets %}
         {% if FEED_ALL_ATOM %}
