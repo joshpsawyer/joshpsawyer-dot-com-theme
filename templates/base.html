@@ -48,22 +48,20 @@
         {% include 'header.html' %}
       </div>
     </header><!-- /#banner -->
-    <div id="hey">
-      <main id="content">
-        <div id="maincontent">
-          {% block content %}
-          {% endblock %}
-        </div>
-      </main>
-      <div id="colophon">
-        <img class="signature" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/secretsauce.png" alt="pixel signature"/>
+    <main id="content">
+      <div id="maincontent">
+        {% block content %}
+        {% endblock %}
       </div>
-      <footer id="contentinfo" class="body">
-        <div id="footercontent">
-          {% include 'footer.html' %}
-        </div>
-      </footer>
+    </main>
+    <div id="colophon">
+      <img class="signature" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/secretsauce.png" alt="pixel signature"/>
     </div>
+    <footer id="contentinfo" class="body">
+      <div id="footercontent">
+        {% include 'footer.html' %}
+      </div>
+    </footer>
   </div>
 {% assets output="js/main.min.js", "js/main.js" %}
 <script src="{{ SITEURL }}/{{ ASSET_URL }}"></script>
